@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 Not Found</title>
     <script>
-        $("#insert-url").innerText="curl -f "+window.location.href
+        document.getElementById("link").innerHTML = "<div>"+"curl -f "+window.location.href+"</div>"
     </script>
     <style>
         @import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
@@ -69,7 +69,7 @@
 <body>
     <div id="app">
         <div>404</div>
-        <div id="insert-url"></div>
+        <div id="link"></div>
         <div class="txt">Not found<span class="blink">_</span> </div>
     </div>
 </body>
