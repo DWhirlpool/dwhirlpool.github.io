@@ -1,244 +1,106 @@
 <html>
   <body>
     <style>
-      @import url('https://fonts.googleapis.com/css?family=Open+Sans|PT+Sans+Narrow');
-$in-out-cubic: cubic-bezier(0.65, 0.05, 0.36, 1);
-@mixin transform($transform...) {
-    -webkit-transform: $transform;
-    -moz-transform: $transform;
-    -ms-transform: $transform;
-    -o-transform: $transform;
-    transform: $transform;
+      @import url("https://fonts.googleapis.com/css?family=Bevan");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
-@mixin transform-origin($transform-origin...) {
-    -webkit-transform-origin: $transform-origin;
-    -moz-transform-origin: $transform-origin;
-    -ms-transform-origin: $transform-origin;
-    -o-transform-origin: $transform-origin;
-    transform-origin: $transform-origin;
-}
-@mixin key-frame($name) {
-    @-webkit-keyframes #{$name} {
-        @content;
-    }
-    @-moz-keyframes #{$name} {
-        @content;
-    }
-    @-o-keyframes #{$name} {
-        @content;
-    }
-    /* Standard syntax */
-    @keyframes #{$name} {
-        @content;
-    }
-}
-@mixin animation($animation...) {
-    -webkit-animation: $animation;
-    -moz-animation: $animation;
-    -o-animation: $animation;
-    animation: $animation;
-}
-@mixin animation-delay($animation...) {
-    -webkit-animation-delay: $animation;
-    -moz-animation-delay: $animation;
-    -o-animation-delay: $animation;
-    animation-delay: $animation;
-}
-body{
-  overflow:hidden;
-  font-family: 'Open Sans', sans-serif;
-}
-.not-found {
-    position: relative;
+
+body {
+    background: rgb(40,40,40);
     overflow: hidden;
-    margin:0 -20vw;
-    height:110vh;
-    [class*="wave"] {
-        position: absolute;
-    }
-    div {
-        position: absolute;
-        width: 100%;
-        bottom: 0;
-        left: 0;
-        @for $i from 1 through 7 {
-            &.wave-#{$i} {
-                background: url(http://res.cloudinary.com/andrewhani/image/upload/v1524501869/404/wave-#{$i}.svg);
-            }
-        }
-      &.sky-bg{
-        background: url(http://res.cloudinary.com/andrewhani/image/upload/v1524821915/404/bg-1_gvybzk.svg);
-        height: 100%;
-      }
-        &[class*="wave"]:not(.wave-4) {
-            height: calc(100% - 250px);
-        }
-        &.wave-4 {
-            height: calc(100% - 430px);
-        }
-    }
-    .boat {
-        position: absolute;
-        top: 0;
-        right: 15%;
-        width: 150px;
-        @include animation(boat 15s $in-out-cubic infinite);
-    }
-    .wave-lost {
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        color: #fff;
-        font-size: 20rem;
-        @include animation(surf 2s);
-        span {
-            float: left;
-            @include animation(float 3s ease-in infinite);
-            &:nth-child(2) {
-                @include animation-delay(2.5s);
-            }
-            &:nth-child(3) {
-                @include animation-delay(4.5s);
-            }
-        }
-    }
-    .wave-island {
-        position: absolute;
-        top: 130px;
-        left: 20%;
-        padding: 10px;
-        width: 170px;
-    }
-    .wave-message {
-        position: absolute;
-        bottom: 100px;
-        left: 50%;
-        padding-right: 50%;
-        height: auto !important;
-        color: #fff;
-        font-size: 3rem;
-        text-align: left;
-        @include animation(wave-message 1s);
+}
+
+p {
+    font-family: "Bevan", cursive;
+    font-size: 130px;
+    margin: 10vh 0 0;
+    text-align: center;
+    letter-spacing: 5px;
+    background-color: black;
+    color: transparent;
+    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.1);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+
+    span {
+        font-size: 1.2em;
     }
 }
 
-@include key-frame(boat) {
-    0% {
-        @include transform-origin(left);
-        @include transform(rotate(-15deg) translate3d(400px, 0px, 0px));
+code {
+    color: #bdbdbd;
+    text-align: center;
+    display: block;
+    font-size: 16px;
+    margin: 0 30px 25px;
+
+    span {
+        color: #f0c674;
     }
-    20% {
-        @include transform-origin(left);
-        @include transform(rotate(15deg) translate3d(-20vw, 0, 0px));
+
+    i {
+        color: #b5bd68;
     }
-    25% {
-        @include transform-origin(left);
-        @include transform(rotate(-7deg) translate3d(-25vw, 0, 0px));
+
+    em {
+        color: #b294bb;
+        font-style: unset;
     }
-    50% {
-        @include transform-origin(left);
-        @include transform(rotate(5deg) translate3d(-50vw, 0, 0px));
-    }
-    60% {
-        @include transform-origin(left);
-        @include transform(rotate(-1deg) translate3d(-60vw, 0, 0px));
-    }
-    100% {
-        @include transform-origin(left);
-        @include transform(rotate(2deg) translate3d(-100vw, 0, 0px));
+
+    b {
+        color: #81a2be;
+        font-weight: 500;
     }
 }
 
-@include key-frame(float) {
-    0%,
-    100% {
-        @include transform(rotate(3deg) translate3d(0px, -10px, 0px));
-    }
-    50% {
-        @include transform(rotate(-3deg) translate3d(0px, 10px, 0px));
-    }
+
+a {
+    color: #8abeb7;
+    font-family: monospace;
+    font-size: 20px;
+    text-decoration: underline;
+    margin-top:10px;
+    display:inline-block
 }
 
-@include key-frame(surf) {
-    0% {
-        @include transform-origin(right);
-        @include transform(rotate(15deg) translate3d(0, 800px, 0));
-    }
-    30% {
-        @include transform-origin(right);
-        @include transform(rotate(15deg) translate3d(0, 500px, 0));
-    }
-    100% {
-        @include transform-origin(right);
-        @include transform(rotate(0) translate3d(0, 0, 0px));
-    }
-}
-@include key-frame(wave-message){
-    0%{
-        @include transform(translate3d(0, 120%, 0));
-    }
-    100%{
-        @include transform(translate3d(0, 0, 0)); 
+@media screen and (max-width: 880px) {
+    p {
+        font-size: 14vw;
     }
 }
     </style>
     <script>
-    var parallax = function(e) {
-    var windowWidth = $(window).width();
-    if (windowWidth < 768) return;
-    var halfFieldWidth = $(".parallax").width() / 2,
-      halfFieldHeight = $(".parallax").height() / 2,
-      fieldPos = $(".parallax").offset(),
-      x = e.pageX,
-      y = e.pageY - fieldPos.top,
-      newX = (x - halfFieldWidth) / 30,
-      newY = (y - halfFieldHeight) / 30;
-    $('.parallax [class*="wave"]').each(function(index) {
-      $(this).css({
-        transition: "",
-        transform:
-          "translate3d(" + index * newX + "px," + index * newY + "px,0px)"
-      });
-    });
-  },
-  stopParallax = function() {
-    $('.parallax [class*="wave"]').css({
-      transform: "translate(0px,0px)",
-      transition: "all .7s"
-    });
-    $timeout(function() {
-      $('.parallax [class*="wave"]').css("transition", "");
-    }, 700);
-  };
-$(document).ready(function() {
-  $(".not-found").on("mousemove", parallax);
-  $(".not-found").on("mouseleave", stopParallax);
-});
+    function type(n, t) {
+    var str = document.getElementsByTagName("code")[n].innerHTML.toString();
+    var i = 0;
+    document.getElementsByTagName("code")[n].innerHTML = "";
+
+    setTimeout(function() {
+        var se = setInterval(function() {
+            i++;
+            document.getElementsByTagName("code")[n].innerHTML =
+                str.slice(0, i) + "|";
+            if (i == str.length) {
+                clearInterval(se);
+                document.getElementsByTagName("code")[n].innerHTML = str;
+            }
+        }, 10);
+    }, t);
+}
+
+type(0, 0);
+type(1, 600);
+type(2, 1300);
     </script>
-    <div class="not-found parallax">
-            <div class="sky-bg"></div>
-            <div class="wave-7"></div>
-            <div class="wave-6"></div>
-            <a class="wave-island" href="#">
-                    <img src="http://res.cloudinary.com/andrewhani/image/upload/v1524501929/404/island.svg" alt="Island">
-                </a>
-            <div class="wave-5"></div>
-            <div class="wave-lost wrp">
-                <span>4</span>
-                <span>0</span>
-                <span>4</span>
-            </div>
-            <div class="wave-4"></div>
-            <div class="wave-boat">
-                <img class="boat" src="http://res.cloudinary.com/andrewhani/image/upload/v1524501894/404/boat.svg" alt="Boat">
-            </div>
-            <div class="wave-3"></div>
-            <div class="wave-2"></div>
-            <div class="wave-1"></div>
-            <div class="wave-message">
-                <p>Your're lost</p>
-                <p>Click on the island to return</p>
-            </div>
-        </div>
+    <p>HTTP: <span>404</span></p>
+<code><span>this_page</span>.<em>not_found</em> = true;</code>
+<code><span>if</span> (<b>you_spelt_it_wrong</b>) {<span>try_again()</span>;}</code>
+<code><span>else if (<b>we_screwed_up</b>)</span> {<em>alert</em>(<i>"We're really sorry about that."</i>); <span>window</span>.<em>location</em> = home;}</code>
+<center><a>HOME</a></center>
     </body>
   </html>
