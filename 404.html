@@ -5,9 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 Not Found</title>
-    <script>
-        document.getElementById("link").innerTEXT = "curl -f "+window.location.href
-    </script>
+    
+        <script>
+            function link() {
+                var errorlink = window.location.href
+                document.getElementById("err").innerHTML = "root@dwhirlpool.github.io:~$ curl -f "+errorlink+"\n"+"curl: (22) The requested"+" URL returned error: 404";
+            }
+        </script>
+    
     <style>
         @import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
 
@@ -39,6 +44,10 @@
         #app .txt {
             font-size: 1.8rem;
         }
+        
+        #app .txtt {
+            font-size: 21px;
+        }
 
         @keyframes blink {
             0% {
@@ -69,8 +78,8 @@
 <body>
     <div id="app">
         <div>404</div>
-        <div id="link"></div>
         <div class="txt">Not found<span class="blink">_</span> </div>
+        <div class="txtt" id="err" onclick="link();"><div class="txt">Click here for more details</div></div>
     </div>
 </body>
 
